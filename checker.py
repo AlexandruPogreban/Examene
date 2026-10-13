@@ -1,4 +1,6 @@
+from importlib.resources import path
 import requests
+import json
 
 SITES = [
     # Pagini obișnuite (Părțile 2, 3 și 4)
@@ -30,21 +32,28 @@ SECURITY_HEADERS = [
 
 def build_url(host, path):
     """Returnează o adresă completă, de exemplu https://example.com/login."""
+   r = requests.get(host, + "/path" + path)
+ 
     pass
 
 
 def is_https(url):
     """Returnează True dacă adresa începe cu https://, altfel False."""
+   r= requests.get(url=build_url)
+    
     pass
 
 
 def show_response(url):
     """Trimite un GET la url și afișează statusul și Content-Type."""
+   r=requests.get status_code(url)
+   
     pass
 
 
 def check_site(url):
     """Returnează un dicționar cu: status, content_type, length, server."""
+     call=requests.get(url)
     pass
 
 
@@ -60,4 +69,7 @@ def check_headers(url):
 
 def retry_check(url, attempts=3):
     """Încearcă de cel mult `attempts` ori; returnează un dicționar cu: status, attempts."""
+   retry_check=0
+while retry_check<attempts:
+    try:response=requests.get(url)
     pass
